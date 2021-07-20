@@ -1,0 +1,33 @@
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.box {
+  border-radius: 2px;
+  margin: 1px;
+  height: 10px;
+  width: 10px;
+}
+
+.emptyBox {
+  background-color: lightgray;
+}
+
+.snakeBox {
+  background-color: darkblue;
+}
+
+.foodBox {
+  background-color: darkgoldenrod;
+}
+
+.fullView {
+  width: 100vw;
+  height: 100vh;
+}
