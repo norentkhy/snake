@@ -8,6 +8,11 @@ export type State = {
   intervalTime: IntervalTime
 }
 export type Grid = symbol[][]
+type Snake = {
+  head: Position
+  tail: Position[]
+  direction: Direction
+}
 type Value = typeof empty | typeof snake | typeof food
 type X = number
 type Y = number
@@ -17,11 +22,6 @@ type IntervalTime = number
 type StationaryDirection = [0, 0]
 type DynamicDirection = [1, 0] | [-1, 0] | [0, 1] | [0, -1]
 type Direction = StationaryDirection | DynamicDirection
-type Snake = {
-  head: Position
-  tail: Position[]
-  direction: Direction
-}
 
 export const initialState = {
   mode: 'press spacebar to start',
