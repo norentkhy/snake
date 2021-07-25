@@ -1,5 +1,6 @@
 import styles from './App.module.css'
 import { createEffect, createSignal, For, onCleanup } from 'solid-js'
+import { createStore } from 'solid-js/store'
 import { match } from 'ts-pattern'
 
 import {
@@ -16,22 +17,22 @@ import {
 } from './model'
 
 export default function App() {
-  const [state, setState] = createSignal<State>(initialState)
-  moveSnakeForward(state())
+  const [state, setState] = createStore<State>(initialState)
+  moveSnakeForward(state)
 
   const timer = setInterval(
-    () => setState(moveSnakeForward(state())),
-    state().intervalTime
+    () => setState(moveSnakeForward(state)),
+    state.intervalTime
   )
   onCleanup(() => clearInterval(timer))
 
-  const getGridData = () => computeGridData(state())
+  const getGridData = () => computeGridData(state)
 
   return (
     <GameGrid
       grid={getGridData()}
       directSnake={(directionString: DirectionString) => {
-        setState(changeDirection(state(), directionString))
+        setState(changeDirection(state, directionString))
       }}
     />
   )

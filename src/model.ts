@@ -73,7 +73,6 @@ export function moveSnakeForward(state: State) {
   const [newHead, newTail, leftoverFood] = computeNewSnakePosition(state)
 
   return {
-    ...state,
     snake: { head: newHead, tail: newTail, direction: state.snake.direction },
     foodPositions: leftoverFood,
   }
